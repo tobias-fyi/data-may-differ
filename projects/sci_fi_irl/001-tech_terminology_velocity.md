@@ -21,17 +21,15 @@ Of particular interest to me is the opportunity sci-fi presents for preemptively
 
 One great example of this that immediately comes to mind is traveling through and living in outer space. (You thought I was going to say artificial intelligence, weren't you?)
 
-Of course there are many stories set in space that do not pay much attention to the minute or day-to-day details of life in zero-gravity. However, as a powerful literary or plot device that can give a story depth and realism, it is usually addressed at some level. Although vast majority of the sci-fi I consume nowadays comes in the form of books, the most vivid portrayal of life in the void also happens to be one of my favorite book and television series, The Expanse. If you don't know what that is or have not read or watched it, I'd very highly recommend it.
+Of course there are many stories set in space that do not pay much attention to the minute or day-to-day details of life in zero-gravity. However, as a powerful literary or plot device that can give a story depth and realism, it is usually addressed at some level. Although vast majority of the sci-fi I consume nowadays comes in the form of books, the most vivid portrayal of life in the void also happens to be one of my favorite book and television series, The Expanse.
 
-The reason for it being high up on my list is not solely due to this portrayal and the fact that I enjoy hard sci-fi when it's done well. To go back to what I stated earlier, it gives me a new lens through which I can consider the concept. I believe it's likely that humans will start living in space sometime in the next several decades.
+The reason for it being high up on my list is not solely due to this portrayal or the fact that I enjoy hard sci-fi when it's done well. To go back to what I stated earlier, these stories give me new perspectives on novel concepts. 
 
-The fact is that living in space without natural gravity and being surrounded by vacuum changes almost everything about day to day life, and indeed much more than that.
-
-My point is that we can and should explore as many of the possible ramifications of these types of things *now*, before we're on our way past the stratosphere
+Stories like The Expanse allow us to explore the possible ramifications of potentially civilization-changing things *now*, before we're on our way past the stratosphere, en masse.
 
 The Sci-Fi IRL series is my first attempt at connecting the various science-fiction universes with our own. 
 
-## Part 1: Technology Terminology Velocity
+## Part 1: Goals
 
 The goal of this particular piece is to make the smallest baby step possible toward the overarching goal of the project, which is to answer the question, "What is the relationship, if any, between the ideas and technology in science-fiction and those of the real world?"
 
@@ -49,7 +47,7 @@ One way to phrase that line of inquiry as a question could be, "When popular cul
 
 However, I don't want to get ahead of myself. I'll save the latter half for next time.
 
-## Velocity Methodology
+## Methodology
 
 ### A Bit of Backstory
 
@@ -61,7 +59,7 @@ However, I held back at first because I did not necessarily want (let alone was 
 
 I felt optimistic; up to the task. I stumbled on the [PushShift file directory](https://files.pushshift.io/reddit/), which is an actively-updated archive of that same data. Once I realized I could download the data month-by-month, I decided to go for it.
 
-I spent a week or two downloading from the PushShift server, raking in around 200GB of data during that time. Several days ago, I happened to be poking around on the PushShift site and found out that along with providing all of the data for download, the maintainer, [Jason](https://pushshift.io/donations/) built and hosts [a public API](https://github.com/pushshift/api) for [querying the entire dataset](https://pushshift.io/api-parameters/) *without downloading all of it to my local storage*.
+I spent a week or two downloading from the PushShift server, raking in around 200GB of data during that time. Several days ago, I happened to be poking around on the PushShift site and found out that along with providing all of the data for download, the maintainer, [Jason](https://pushshift.io/donations/), built and hosts [a public API](https://github.com/pushshift/api) for [querying the entire dataset](https://pushshift.io/api-parameters/) *without downloading all of it to my local storage*.
 
 That benefitted me in a couple of very important ways. First, I no longer had to fill up the majority of my total digital storage capacity (quite literally—all of my externals and everything). Second, the data is already cleaned and organized, with infrastructure already in place to run the kinds of queries that I wanted to run for this essay.  
 
@@ -79,14 +77,12 @@ The fundamental criteria I used while creating the list were that the word or ph
 
 #### Keywords
 
-- algorithms
-- artificial intelligence
-- augmented reality
-- genetic engineering
-- universal basic income
-- quantum computing
-- cryptocurrency
-- facial recognition
+- algorithm
+- AI
+- AR
+- automation
+- big data
+
 
 ### Equal Representation
 
@@ -94,51 +90,71 @@ Once I had my first basic list of around 10 terms (for the first run-through I e
 
 With that in mind, I spent a while combing through the massive list of subreddits, adding to my list, grouping and re-grouping, pruning from the list...you get the point. In case I didn't make it clear enough already, the general criteria I used to group the subreddits are: 
 
-1. Science, technology, philosophy; and
-2. Entertainment and media.
+1. Science and technology
+2. Entertainment
+3. News, politics, and general discussion
 
 #### Subreddits
 
 - Science / Technology
-    - Futurology, 14.2m
-    - technology, 8.2m
-    - science, 22.4m
-    - askscience, 18.1m
+  - r/Futurology, 14.2m
+  - r/technology, 8.2m
+  - r/science, 22.4m
+  - r/askscience, 18.1m
+  - r/gadgets, 15.9m
 - Entertainment
-    - books, 17.1m
-    - scifi, 1.2m
-    - movies, 21.5m
-    - gaming, 23.7m
-- Media / General
-    - worldnews, 22.2m
-    - news, 19m
-    - politics, 5.4m
-    - AskReddit, 24.6m
+  - r/books, 17.1m
+  - r/scifi, 1.2m
+  - r/movies, 21.5m
+  - r/gaming, 23.7m
+  - r/television, 15.7m
+- Public Discourse
+  - r/news, 19m
+  - r/worldnews, 22.2m
+  - r/politics, 5.4m
+  - r/philosophy, 14.1m
+- General Discussion
+  - r/AskReddit, 24.6m
+  - r/todayilearned, 21.6m
+  - r/explainlikeimfive, 17.2m
+    
+### Notes
+
+1. I included the "General" groups as a sort of control group analogue. I thought it would be good to also look at the trend of general discussion alongside the more specific discussions in the other groups.
+2. I used the above list to cast a somewhat wide net while gathering the initial data. For this piece, I only include the subreddits that I found to have interesting data.
 
 ### The Data is in the Details
 
-I used the API to aggregate the number of comments that contain the keywords, and explore the data across time and across different online communities (subreddits).
+Using Python, I wrote some clever loops (at least I thought so) that went through the lists of keywords and subreddits, constructing the URL for each combination and sending it off to the API. For each keyword-subreddit combination, the parameters I included in my request told the API to aggregate the number of comments containing the keywords into monthly buckets.
 
-    #!python
-    from django.db import models
+The function I wrote to do this saved the data to both a Pandas DataFrame, for immediate use in my JupyterLab environment, and to a CSV file, for future use. The raw data is available on GitHub, in case you want to take a look for yourself or use it to do your own analysis.
 
-    from wagtail.core.models import Page
-    from wagtail.core.fields import RichTextField
-    from wagtail.admin.edit_handlers import FieldPanel
+I'll be publishing a separate article that gets into the nitty gritty of the code I wrote to gather and visualize the data. If you're reading this paragraph, that "tutorial" piece has not been published yet. I will link to it from here when it goes live.
 
+As this is only the very first piece in a series and I am still a fledgeling data scientist, none of the code or analysis is particularly complex. However, I want to get into the habit of explaining every step of my process well enough for anyone to understand, data scientist or not.
 
-    class HomePage(Page):
-        body = RichTextField(blank=True)
-
-        content_panels = Page.content_panels + [FieldPanel("body", classname="full")]
+We all start somewhere.
 
 ### Considerations, Assumptions, Shortfalls, Improvements
 
+In order to tell the story I want to tell with the time I had to do so and my currently limited knowledge of advanced methods, I had to make some strong assumptions and overlook some obvious shortfalls.
 
-## Visual Exploration
+One of the most important shortfalls of my data and subsequent analysis is that none of it takes into account the relative size of the subreddits or the total number of comments made in each subreddit for each time bucket. Without that additional data, there is no easy way to normalize the data.
+
+If I continue to utilize this dataset in the future, which is quite likely, I will work on normalizing the data. One important benefit of normalized data is being able to generate one plot per keyword, one plot per subreddit, or even show all of the data in a single plot. Without normalization, the scales of the vertical axes vary widely enough to make combining graphs somewhat impractical.
+
+Of course the most important benefit of normalization is being able to see the actual growth of the specific keywords, without it being obfuscated by the growth of the subreddit or Reddit as a whole.
+
+Another important consideration for this data is the fact that these are comments. My assumption is that comments do a much better job representing popular discourse than the actual content of the books and shows.
+
+Like I said, we all start somewhere. I'm doing my best to not let perfect be the enemy of good.
+
+With all of that out of the way, let's get into it!
+
+## The Velocity of Technology Terminology
 
 
 
-## Re(Sources)
+
 
 
